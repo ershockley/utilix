@@ -47,11 +47,12 @@ jobs:
     - name: Write config
       run: | 
            bash .github/scripts/create-config.sh ${{ github.event.inputs.config_file }}
-           export XENON_CONFIG=${{ github.event.inputs.config_file }}
+           export XENON_CONFIG=$PWD/${{ github.event.inputs.config_file }}
       env:
         RUNDB_API_URL: ${{ secrets.RUNDB_API_URL }}
         RUNDB_API_USER: ${{ secrets.RUNDB_API_USER }}
         RUNDB_API_PASSWORD: ${{ secrets.RUNDB_API_PASSWORD }}
     - name: Import utilix
-      run: python -c "import utilix; print(utilix.__file__)"
-
+      run: |
+           echo "XENON_CONFIG=$XENON_CONFIG"
+           python -c "import utilix; print(utilix.__file__)"

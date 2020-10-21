@@ -41,8 +41,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Write config
       run: |
-      bash .github/scripts/create-config.sh
-
+      	   ./.github/scripts/create-config.sh
+      shell: bash
     - name: Import utilix
       run: python -c "import utilix; print(utilix.__file__)"
 

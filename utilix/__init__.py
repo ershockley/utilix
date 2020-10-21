@@ -6,3 +6,4 @@ try:
 
 except:
     print("Warning: no utilix configuration file found!")
+    raise

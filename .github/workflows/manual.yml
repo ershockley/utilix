@@ -40,8 +40,8 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
     - name: Write config
-      run: |
-      	   bash .github/scripts/create-config.sh
+      run: | 
+           bash .github/scripts/create-config.sh
     - name: Import utilix
       run: python -c "import utilix; print(utilix.__file__)"
 

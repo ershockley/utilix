@@ -15,7 +15,10 @@ on:
         default: 'World'
         # Input has to be provided for the workflow to run
         required: true
-
+      config_file: 
+        description: 'path to utilix config file'
+        default: 'xenon_config'
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
@@ -41,7 +44,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Write config
       run: | 
-           bash .github/scripts/create-config.sh
+           bash .github/scripts/create-config.sh ${{ github.event.inputs.config_file }}
+           export XENON_CONFIG=${{ github.event.inputs.config_file }}
     - name: Import utilix
       run: python -c "import utilix; print(utilix.__file__)"
 

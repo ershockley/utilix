@@ -37,8 +37,8 @@ jobs:
     steps:
     - name: Setup python
       uses: actions/setup-python@v2
-      #with:
-      #  python-version: '3.6'
-    - name Import utilix
+      with:
+        python-version: '3.6'
+    - name: Import utilix
       run: python -c "import utilix; print(utilix.__file__)"
 

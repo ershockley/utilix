@@ -26,8 +26,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Checkout repo
-      uses: actions/checkout@v2
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
 
@@ -39,6 +37,8 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.6'
+    - name: Checkout repo
+      uses: actions/checkout@v2
     - name: Import utilix
       run: python -c "import utilix; print(utilix.__file__)"
 

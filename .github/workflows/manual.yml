@@ -33,6 +33,6 @@ jobs:
     - name install python
       uses: actions/setup-python
       with:
-	python-version: '3.6'
+        python-version: '3.6'
     - name Import utilix
       run: python -c "import utilix; print(utilix.__file__)"

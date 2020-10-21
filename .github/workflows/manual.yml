@@ -46,13 +46,11 @@ jobs:
       uses: py-actions/py-dependency-install@v2
     - name: Write config
       run: | 
-           bash .github/scripts/create-config.sh ${{ github.event.inputs.config_file }}
-           export XENON_CONFIG=$PWD/${{ github.event.inputs.config_file }}
+           bash .github/scripts/create-config.sh $HOME/.xenon_config
       env:
         RUNDB_API_URL: ${{ secrets.RUNDB_API_URL }}
         RUNDB_API_USER: ${{ secrets.RUNDB_API_USER }}
         RUNDB_API_PASSWORD: ${{ secrets.RUNDB_API_PASSWORD }}
     - name: Import utilix
       run: |
-           echo "XENON_CONFIG=$XENON_CONFIG"
            python -c "import utilix; print(utilix.__file__)"

@@ -22,14 +22,15 @@ jobs:
       uses: py-actions/py-dependency-install@v2
     - name: Write config
       run: | 
-           bash .github/scripts/create-config.sh $HOME/.xenon_config
+           bash .github/scripts/create-config.sh
       env:
         RUNDB_API_URL: ${{ secrets.RUNDB_API_URL }}
         RUNDB_API_USER: ${{ secrets.RUNDB_API_USER }}
         RUNDB_API_PASSWORD: ${{ secrets.RUNDB_API_PASSWORD }}
-    - name: Test utilix.db
+    - name: Test utilix db
       shell: python
       run: |
+           import utilix
            from utilix import db
            from pprint import pprint
            data = db.get_context('xenonnt_online', '0.11.0')

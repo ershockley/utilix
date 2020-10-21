@@ -42,6 +42,8 @@ jobs:
         python-version: '3.6'
     - name: Checkout repo
       uses: actions/checkout@v2
+    - name: Install python dependencies
+      uses: py-actions/py-dependency-install@v2
     - name: Write config
       run: | 
            bash .github/scripts/create-config.sh ${{ github.event.inputs.config_file }}

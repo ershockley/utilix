@@ -35,7 +35,7 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-    - name Setup python
+    - name: Setup python
       uses: actions/setup-python@v2
       #with:
       #  python-version: '3.6'

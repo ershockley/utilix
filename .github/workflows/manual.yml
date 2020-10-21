@@ -42,8 +42,8 @@ jobs:
     - name: Write config
       run: |
       ./.github/scripts/create-config.sh
-      env:
-        RUNDB_API_URL: test
+      #env:
+      #  RUNDB_API_URL: test
       # RUNDB_API_USER: ${{ secrets.RUNDB_API_USER }}
       # RUNDB_API_PASSWORD: ${{ secrets.RUNDB_API_PASSWORD }}
     - name: Import utilix

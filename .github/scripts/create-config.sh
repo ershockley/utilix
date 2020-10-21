@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat > xenon_config <<EOF
+cat > $1 <<EOF
 [RunDB]
 rundb_api_url = $RUNDB_API_URL
 rundb_api_user = $RUNDB_API_USER
